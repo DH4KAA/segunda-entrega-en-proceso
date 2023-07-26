@@ -16,6 +16,7 @@ app.get('/products', function (req, res) {
     const limit = req.query.limit
     const products = PM.getProducts()
     console.log(products)
+    res.send(products)
     //Traer los productos
     //     if (limit)
     // //devolver la cantidad limite
