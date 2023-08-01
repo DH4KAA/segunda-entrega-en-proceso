@@ -1,4 +1,4 @@
-const fs = require("fs");
+import fs from "fs";
 
 class ProductManager {
     constructor() {
@@ -16,12 +16,16 @@ class ProductManager {
     addProduct(product) {
         if (this.validateCode(product.code)) {
             console.log("Error! Code exists!");
+
+            return false;
         } else {
-            const producto = { id: this.generateId(), title: product.title, description: product.description, price: product.price, thumbnail: product.thumbnail, code: product.code, stock: product.stock };
+            const producto = { id: this.generateId(), title: product.title, description: product.description, code: product.code, price: product.price, status: product.status, stock: product.stock, category: product.category, thumbnails: product.thumbnails };
             this.products = this.getProducts();
             this.products.push(producto);
             this.saveProducts();
             console.log("Product added!");
+
+            return true;
         }
     }
 
@@ -32,14 +36,20 @@ class ProductManager {
         if (pos > -1) {
             this.products[pos].title = product.title;
             this.products[pos].description = product.description;
-            this.products[pos].price = product.price;
-            this.products[pos].thumbnail = product.thumbnail;
             this.products[pos].code = product.code;
+            this.products[pos].price = product.price;
+            this.products[pos].status = product.status;
             this.products[pos].stock = product.stock;
+            this.products[pos].category = product.category;
+            this.products[pos].thumbnails = product.thumbnails;
             this.saveProducts();
             console.log("Product updated!");
+
+            return true;
         } else {
             console.log("Not found!");
+
+            return false;
         }
     }
 
@@ -51,8 +61,12 @@ class ProductManager {
             this.products.splice(pos, 1); (0, 1)
             this.saveProducts();
             console.log("Product #" + id + " deleted!");
+
+            return true;
         } else {
             console.log("Not found!");
+
+            return false;
         }
     }
 
@@ -74,15 +88,16 @@ class ProductManager {
 
     generateId() {
         let max = 0;
+        let products = this.getProducts();
 
-        this.products.forEach(item => {
+        products.forEach(item => {
             if (item.id > max) {
                 max = item.id;
             }
         });
 
         return max + 1;
-
+        //return this.products.length > 0 ? this.products[this.products.length-1].id+1 : 1;
     }
 
     saveProducts() {
@@ -90,7 +105,7 @@ class ProductManager {
     }
 }
 
-module.exports = { ProductManager };
+export default ProductManager;
 
 
 

@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "desafio2-manera2",
   "version": "1.0.0",
   "main": "ProductManager.js",
