@@ -1,1 +1,67 @@
-[{"id":1,"title":"Zapatillas Vans U SK8-HI","description":"Las Sk8-Hi de Vans son unas zapatillas ligeras, de caña alta y con cordones. Presenta amortiguación en el talón para más confort, una puntera reforzada que garantiza la durabilidad y cuello acolchado para mayor sujeción y flexibilidad. Está hecha con una parte superior de lona y gamuza resistente. La distintiva suela waffle de caucho proporciona un agarre más firme.","code":1115,"price":40000,"status":true,"stock":23,"category":"Zapatilla","thumbnail":["https://d3ugyf2ht6aenh.cloudfront.net/stores/001/633/637/products/vn000d5ib8c_11-59654e477e71986c0216248929985208-640-0.png"]},{"id":2,"title":"Zapatilla Emerica Vulcano","description":"Zapatilla vulcanizada con refuerzo en la parte del empeine.","code":1111,"price":23925,"status":true,"stock":29,"category":"Zapatillas","thumbnail":["https://www.indy.com.ar/cdn/shop/files/zapatillas-dc-kalis-vulc-negro-negro-indy-1.jpg?v=1689187467&width=990"],"thumbnails":["https://emerica.com/cdn/shop/products/6101000147-579-S-001_800x.png?v=1663701099"]},{"id":3,"title":"Zapatillas U SK8-HI","description":"La campera de calce regular es una prenda moderna y versátil. Está matelaseada y presenta recortes de colores que le añaden estilo. Además, cuenta con una capucha desmontable, ajustable mediante elástico y tancas. Dispone de dos bolsillos frontales con doble acceso y un bolsillo interno para mayor practicidad. La etiqueta de marca está estampada y en el frente se encuentra una goma pantógrafo de alta calidad.","code":1113,"price":69990,"status":true,"stock":19,"category":"Zapatilla","thumbnail":["https://www.indy.com.ar/cdn/shop/files/campera-rusty-poseidon-beige-bordo-indy-1_ed0844e2-f729-4535-828a-c2bb24cbffee.webp?v=1689195887&width=990"]},{"id":4,"title":"CAMPERA DC SNOW MERIDIAN 45K VERDE AGUA","description":"El equilibrio perfecto entre calidez, ajuste y función técnica impecable de nuestra colección.","code":1112,"price":236999,"status":true,"stock":41,"category":"Campera","thumbnail":["https://www.indy.com.ar/cdn/shop/files/campera-dc-snow-meridian-45k-verde-agua-indy-1_00b56fbe-7fb8-4e11-97c0-5230b10a4aa6.jpg?v=1689193962"]},{"id":5,"title":"Zapatilla Emerica Vulcano","description":"Zapatilla vulcanizada con refuerzo en la parte del empeine.","code":1111,"price":23925,"status":true,"stock":23,"category":"Zapatilla","thumbnails":["https://emerica.com/cdn/shop/products/6101000147-579-S-001_800x.png?v=1663701099"]}]
+[
+    {
+        "id": 1,
+        "title": "Zapatillas Vans U SK8-HI",
+        "description": "Las Sk8-Hi de Vans son unas zapatillas ligeras, de caña alta y con cordones. Presenta amortiguación en el talón para más confort, una puntera reforzada que garantiza la durabilidad y cuello acolchado para mayor sujeción y flexibilidad. Está hecha con una parte superior de lona y gamuza resistente. La distintiva suela waffle de caucho proporciona un agarre más firme.",
+        "code": 1115,
+        "price": 40000,
+        "status": true,
+        "stock": 23,
+        "category": "Zapatilla",
+        "thumbnail": [
+            "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/633/637/products/vn000d5ib8c_11-59654e477e71986c0216248929985208-640-0.png"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Zapatilla Emerica Vulcano",
+        "description": "Zapatilla vulcanizada con refuerzo en la parte del empeine.",
+        "code": 1111,
+        "price": 23925,
+        "status": true,
+        "stock": 29,
+        "category": "Zapatillas",
+        "thumbnail": [
+            "https://www.indy.com.ar/cdn/shop/files/zapatillas-dc-kalis-vulc-negro-negro-indy-1.jpg?v=1689187467&width=990"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Zapatillas U SK8-HI",
+        "description": "La campera de calce regular es una prenda moderna y versátil. Está matelaseada y presenta recortes de colores que le añaden estilo. Además, cuenta con una capucha desmontable, ajustable mediante elástico y tancas. Dispone de dos bolsillos frontales con doble acceso y un bolsillo interno para mayor practicidad. La etiqueta de marca está estampada y en el frente se encuentra una goma pantógrafo de alta calidad.",
+        "code": 1113,
+        "price": 69990,
+        "status": true,
+        "stock": 19,
+        "category": "Zapatilla",
+        "thumbnail": [
+            "https://www.indy.com.ar/cdn/shop/files/campera-rusty-poseidon-beige-bordo-indy-1_ed0844e2-f729-4535-828a-c2bb24cbffee.webp?v=1689195887&width=990"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "CAMPERA DC SNOW MERIDIAN 45K VERDE AGUA",
+        "description": "El equilibrio perfecto entre calidez, ajuste y función técnica impecable de nuestra colección.",
+        "code": 1112,
+        "price": 236999,
+        "status": true,
+        "stock": 41,
+        "category": "Campera",
+        "thumbnail": [
+            "https://www.indy.com.ar/cdn/shop/files/campera-dc-snow-meridian-45k-verde-agua-indy-1_00b56fbe-7fb8-4e11-97c0-5230b10a4aa6.jpg?v=1689193962"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Zapatilla Emerica Vulcano",
+        "description": "Zapatilla vulcanizada con refuerzo en la parte del empeine.",
+        "code": 1111,
+        "price": 23925,
+        "status": true,
+        "stock": 23,
+        "category": "Zapatilla",
+        "thumbnails": [
+            "https://emerica.com/cdn/shop/products/6101000147-579-S-001_800x.png?v=1663701099"
+        ]
+    }
+]
