@@ -1,3 +1,4 @@
+//const fs = require("fs");
 import fs from "fs";
 
 class ProductManager {
@@ -106,7 +107,6 @@ class ProductManager {
 }
 
 export default ProductManager;
-
 
 
 

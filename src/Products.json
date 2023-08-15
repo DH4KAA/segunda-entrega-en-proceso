@@ -43,19 +43,19 @@
         "title": "CAMPERA DC SNOW MERIDIAN 45K VERDE AGUA",
         "description": "El equilibrio perfecto entre calidez, ajuste y función técnica impecable de nuestra colección.",
         "code": 1112,
-        "price": 236999,
+        "price": 298000,
         "status": true,
         "stock": 41,
         "category": "Campera",
         "thumbnail": [
-            "https://www.indy.com.ar/cdn/shop/files/campera-dc-snow-meridian-45k-verde-agua-indy-1_00b56fbe-7fb8-4e11-97c0-5230b10a4aa6.jpg?v=1689193962"
+            "https://cdn.dcshoes.com.ar/media/catalog/product/cache/2c567871808060a6c6ba6753e18925bd/1/2/1232135038-01_3.jpg"
         ]
     },
     {
         "id": 5,
         "title": "Zapatilla Emerica Vulcano",
         "description": "Zapatilla vulcanizada con refuerzo en la parte del empeine.",
-        "code": 1111,
+        "code": 1114,
         "price": 23925,
         "status": true,
         "stock": 23,

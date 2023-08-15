@@ -14,7 +14,7 @@ class CartManager {
     }
 
     newCart() {
-        this.carts.push({ id: this.generateId(), products: [] });
+        this.carts.push({id:this.generateId(), products:[]});
         this.saveCart();
         console.log("Cart created!");
 
@@ -43,7 +43,7 @@ class CartManager {
             }
         });
 
-        return max + 1;
+        return max+1;
     }
 
     saveCart() {
@@ -56,16 +56,16 @@ class CartManager {
         let product = cart.products.find(item => item.product === pid);
 
         if (product) {
-            product.quantity += 1;
+            product.quantity+= 1;
         } else {
-            cart.products.push({ product: pid, quantity: 1 });
+            cart.products.push({product:pid, quantity:1});
         }
 
         this.saveCart();
         console.log("Product added!");
 
         return true;
-    }
+    }    
 }
 
 export default CartManager;
