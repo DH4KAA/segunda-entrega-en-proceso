@@ -1,5 +1,5 @@
 import { Router } from "express";
-import ProductManager from "../ProductManager.js";
+import ProductManager from "../dao/ProductManager.js";
 
 const productsRouter = Router();
 const PM = new ProductManager();
@@ -68,8 +68,8 @@ productsRouter.post("/", (req, res) => {
     }
 });
 
-productsRouter.put("/:pid", (req, res) => {
-    let pid = Number(req.params.pid);
+productsRouter.put("/:pid", async (req, res) => {
+    let pid = req.params.pid;
     let {title, description, code, price, status, stock, category, thumbnails} = req.body;
 
     if (!title) {
@@ -112,17 +112,20 @@ productsRouter.put("/:pid", (req, res) => {
         return false;
     }
 
-    if (PM.updateProduct(pid, {title, description, code, price, status, stock, category, thumbnails})) {
+    const result = await PM.updateProduct(pid, {title, description, code, price, status, stock, category, thumbnails});
+
+    if (result) {
         res.send({status:"ok", message:"El Producto se actualizó correctamente!"});
     } else {
         res.status(500).send({status:"error", message:"Error! No se pudo actualizar el Producto!"});
     }
 });
 
-productsRouter.delete("/:pid", (req, res) => {
-    let pid = Number(req.params.pid);
+productsRouter.delete("/:pid", async (req, res) => {
+    let pid = req.params.pid;
+    const result = await PM.deleteProduct(pid)
 
-    if (PM.deleteProduct(pid)) {
+    if (result) {
         res.send({status:"ok", message:"El Producto se eliminó correctamente!"});
     } else {
         res.status(500).send({status:"error", message:"Error! No se pudo eliminar el Producto!"});
