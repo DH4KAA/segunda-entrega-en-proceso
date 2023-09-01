@@ -4,21 +4,20 @@ import ProductManager from "../dao/ProductManager.js";
 const productsRouter = Router();
 const PM = new ProductManager();
 
-productsRouter.get("/", (req, res) => {
-    const products = PM.getProducts();
-    let {limit} = req.query;
+productsRouter.get("/", async (req, res) => {
+    const products = await PM.getProducts(req.query);
 
-    res.send({products:limit ? products.slice(0, limit) : products});
+    res.send({products});
 });
 
-productsRouter.get("/:pid", (req, res) => {
-    const products = PM.getProducts();
-    let pid = Number(req.params.pid);
+productsRouter.get("/:pid", async (req, res) => {
+    let pid = req.params.pid;
+    const products = await PM.getProductById(pid);
     
-    res.send({product:products.find(item => item.id === pid) || "Error! El ID de Producto no existe!"});
+    res.send({products});
 });
 
-productsRouter.post("/", (req, res) => {
+productsRouter.post("/", async (req, res) => {
     let {title, description, code, price, status, stock, category, thumbnails} = req.body;
 
     if (!title) {
@@ -61,7 +60,9 @@ productsRouter.post("/", (req, res) => {
         return false;
     }
 
-    if (PM.addProduct({title, description, code, price, status, stock, category, thumbnails})) {
+    const result = await PM.addProduct({title, description, code, price, status, stock, category, thumbnails}); 
+
+    if (result) {
         res.send({status:"ok", message:"El Producto se agregó correctamente!"});
     } else {
         res.status(500).send({status:"error", message:"Error! No se pudo agregar el Producto!"});

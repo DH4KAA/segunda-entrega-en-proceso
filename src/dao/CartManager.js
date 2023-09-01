@@ -1,68 +1,16 @@
-import { productModel } from "./models/product.model.js";
+import { cartModel } from "./models/cart.model.js";
 
-class ProductManager {
-    async addProduct(product) {
-        try {
-            if (await this.validateCode(product.code)) {
-                console.log("Error! Code exists!");
-    
-                return false;
-            } else {
-                await productModel.create(product)
-                console.log("Product added!");
-    
-                return true;
-            }
-        } catch (error) {
-            return false;
-        }
+class CartManager {
+    async newCart() {
+        let cart = await cartModel.create({products:[]});
+        console.log("Cart created!");
+
+        return cart;
     }
 
-    async updateProduct(id, product) {
-        try {
-            if (this.validateId(id)) {   
-                if (await this.getProductById(id)) {
-                    await productModel.updateOne({_id:id}, product);
-                    console.log("Product updated!");
-        
-                    return true;
-                }
-            }
-            
-            return false;
-        } catch (error) {
-            console.log("Not found!");
-    
-            return false;
-        }
-    }
-
-    async deleteProduct(id) {
-        try {
-            if (this.validateId(id)) {    
-                if (await this.getProductById(id)) {
-                    await productModel.deleteOne({_id:id});
-                    console.log("Product deleted!");
-    
-                    return true;
-                }
-            }
-
-            return false;
-        } catch (error) {
-            console.log("Not found!");
-    
-            return false;
-        }
-    }
-
-    async getProducts(limit) {
-        return await limit ? productModel.find().limit(limit).lean() : productModel.find().lean();
-    }
-
-    async getProductById(id) {
+    async getCart(id) {
         if (this.validateId(id)) {
-            return await productModel.findOne({_id:id}).lean() || null;
+            return await cartModel.findOne({_id:id}).lean() || null;
         } else {
             console.log("Not found!");
             
@@ -70,13 +18,99 @@ class ProductManager {
         }
     }
 
+    async getCarts() {
+        return await cartModel.find().lean();
+    }
+
+    async addProductToCart(cid, pid) {
+        try {
+            if (this.validateId(cid)) {
+                const cart = await this.getCart(cid);
+                const product = cart.products.find(item => item.product === pid);
+
+                if (product) {
+                    product.quantity+= 1;
+                } else {
+                    cart.products.push({product:pid, quantity:1});
+                }
+
+                await cartModel.updateOne({_id:cid}, {products:cart.products});
+                console.log("Product added!");
+    
+                return true;
+            } else {
+                console.log("Not found!");
+                
+                return false;
+            }
+        } catch (error) {
+            return false
+        }
+    }
+
+    async updateQuantityProductFromCart(cid, pid, quantity) {
+        try {
+            if (this.validateId(cid)) {
+                const cart = await this.getCart(cid);
+                const product = cart.products.find(item => item.product === pid);
+                product.quantity = quantity;
+
+                await cartModel.updateOne({_id:cid}, {products:cart.products});
+                console.log("Product updated!");
+    
+                return true;
+            } else {
+                console.log("Not found!");
+                
+                return false;
+            }
+        } catch (error) {
+            return false
+        }
+    }
+
+    async deleteProductFromCart(cid, pid) {
+        try {
+            if (this.validateId(cid)) {
+                const cart = await this.getCart(cid);
+                const products = cart.products.filter(item => item.product !== pid);
+
+                await cartModel.updateOne({_id:cid}, {products:products});
+                console.log("Product deleted!");
+    
+                return true;
+            } else {
+                console.log("Not found!");
+                
+                return false;
+            }
+        } catch (error) {
+            return false
+        }
+    }
+
+    async deleteProductsFromCart(cid) {
+        try {
+            if (this.validateId(cid)) {
+                const cart = await this.getCart(cid);
+
+                await cartModel.updateOne({_id:cid}, {products:[]});
+                console.log("Products deleted!");
+    
+                return true;
+            } else {
+                console.log("Not found!");
+                
+                return false;
+            }
+        } catch (error) {
+            return false
+        }
+    }
+    
     validateId(id) {
         return id.length === 24 ? true : false;
     }
-
-    async validateCode(code) {
-        return await productModel.findOne({code:code}) || false;
-    }
 }
 
-export default ProductManager;
+export default CartManager;
