@@ -19,7 +19,7 @@ class ProductManager {
 
             return false;
         } else {
-            const producto = {id:this.generateId(), title:product.title, description:product.description, code:product.code, price:product.price, status:product.status, stock:product.stock, category:product.category, thumbnails:product.thumbnails};
+            const producto = { id: this.generateId(), title: product.title, description: product.description, code: product.code, price: product.price, status: product.status, stock: product.stock, category: product.category, thumbnails: product.thumbnails };
             this.products = this.getProducts();
             this.products.push(producto);
             this.saveProducts();
@@ -58,7 +58,7 @@ class ProductManager {
         let pos = this.products.findIndex(item => item.id === id);
 
         if (pos > -1) {
-            this.products.splice(pos, 1); (0,1)
+            this.products.splice(pos, 1); (0, 1)
             this.saveProducts();
             console.log("Product #" + id + " deleted!");
 
@@ -96,14 +96,13 @@ class ProductManager {
             }
         });
 
-        return max+1;
-        
+        return max + 1;
+        //return this.products.length > 0 ? this.products[this.products.length-1].id+1 : 1;
     }
 
     saveProducts() {
         fs.writeFileSync(this.path, JSON.stringify(this.products));
     }
 }
-
 
 export default ProductManager;

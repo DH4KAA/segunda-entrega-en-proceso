@@ -9,8 +9,9 @@
                 <div class="card-body text-center">
                     <p class="card-text text-dark">{{this.title}}<br><span class="text-danger">${{this.price}}</span>
                     </p>
-                    <p><button class="btn btn-dark" onclick="agregarProductoAlCarrito('{{product._id}}')">Agregar
-                            (+)</button></p>
+                    <button class="btn btn-dark" onclick="agregarProductoAlCarrito('{{_id}}')">Agregar (+)</button>
+
+                    <p>{{this._id}}</p>
                 </div>
             </div>
         </div>
@@ -23,7 +24,7 @@
                     {{#if products.hasPrevPage}}
                     <li class="page-item">
                         <a class="page-link" href="{{products.prevLink}}">
-                            <<< /a>
+                            <<< </a>
                     </li>
                     {{/if}}
                     {{#if products.hasPrevPage}}
@@ -50,4 +51,4 @@
     </div>
 </div>
 
-<script src="js/products.js"></script>
+<script src="../js/products.js"></script>
