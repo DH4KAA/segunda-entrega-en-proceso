@@ -9,7 +9,8 @@
                 <div class="card-body text-center">
                     <p class="card-text text-dark">{{this.title}}<br><span class="text-danger">${{this.price}}</span>
                     </p>
-                    <button class="btn btn-dark" onclick="agregarProductoAlCarrito('{{_id}}')">Agregar (+)</button>
+                    <button class="btn btn-dark" onclick="agregarProductoAlCarrito('{{{this._id}}}')">Agregar
+                        (+)</button>
 
                     <p>{{this._id}}</p>
                 </div>
