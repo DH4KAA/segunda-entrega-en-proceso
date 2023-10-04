@@ -4,7 +4,8 @@
         <div class="col-md-4">
             <div class="card border-0 mb-3">
                 <a href="/products/{{this._id}}" class="text-decoration-none">
-                    <img src="{{this.thumbnails}}" class="img-fluid" alt="{{this.title}}">
+                    <<img src="{{this.thumbnails}}" class="card-img-top" style="height: 15rem; object-fit:scale-down"
+                        alt="{{this.title}}">
                 </a>
                 <div class="card-body text-center">
                     <p class="card-text text-dark">{{this.title}}<br><span class="text-danger">${{this.price}}</span>
